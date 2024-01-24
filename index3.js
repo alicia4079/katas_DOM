@@ -44,79 +44,39 @@ const countries2 = [
   { title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5' }
 ]
 
-const container = document.querySelector('#container')
+for (const country of countries2) {
+  const div = document.createElement('div')
+  const title = document.createElement('h4')
+  const img = document.createElement('img')
 
-for (i = 0; i < countries2.length; i++) {
-  const country2 = countries2[i]
+  title.textContent = country.title
+  img.src = country.imgUrl
 
-  const divElement = document.createElement('div')
-  const h4Element = document.createElement('h4')
-  const imgElement = document.createElement('img')
-
-  h4Element.textContent = country2.title
-  imgElement.src = country2.imgUrl
-
-  divElement.appendChild(h4Element)
-  divElement.appendChild(imgElement)
-
-  container.appendChild(divElement)
+  div.appendChild(title)
+  div.appendChild(img)
+  document.body.appendChild(div)
 }
 
 // Ejercicio 3.5
 
-const container2 = document.querySelector('#container2')
-const deleteLastBotton = document.querySelector('#deleteLastBotton')
+const buttonDeleteLast = document.createElement('button')
+buttonDeleteLast.textContent = 'Eliminar el último'
 
-function DeleteLastDiv() {
-  const divs = container2.querySelectorAll('div')
-  const lastDiv = divs[divs.length - 1]
-  if (lastDiv) {
-    container2.removeChild(lastDiv)
-  }
+function eliminarFN() {
+  const allDivsToRemove = document.querySelectorAll('div')
+  allDivsToRemove[allDivsToRemove.length - 1].remove()
 }
 
-deleteLastBotton.addEventListener('click', DeleteLastDiv)
+buttonDeleteLast.addEventListener('click', eliminarFN)
+document.body.appendChild(buttonDeleteLast)
 
 //Ejercicio 3.6
 
-function DeleteDiv(event) {
-  const divToRemove = event.target.parentNode
-  container2.removeChild(divToRemove)
+const allDivsToRemove2 = document.querySelectorAll('div')
+
+for (const div of allDivsToRemove2) {
+  const button = document.createElement('button')
+  button.textContent = 'Elimíname!'
+  button.addEventListener('click', (e) => e.target.parentElement.remove())
+  div.appendChild(button)
 }
-
-for (let i = 0; i < countries2.length; i++) {
-  const country = countries2[i]
-  const divElement = document.createElement('div')
-  const h4Element = document.createElement('h4')
-  const imgElement = document.createElement('img')
-  const deleteButton = document.createElement('button')
-  h4Element.textContent = country.title
-  imgElement.src = country.imgUrl
-  deleteButton.textContent = 'Eliminar'
-  deleteButton.addEventListener('click', DeleteDiv)
-
-  divElement.appendChild(h4Element)
-  divElement.appendChild(imgElement)
-  divElement.appendChild(deleteButton)
-
-  container2.appendChild(divElement)
-}
-
-//Ejercicio 4.1
-
-const clickButton = (event) => {
-  console.log(event.target)
-}
-
-const btnToClick = document.querySelector('#btnToClick')
-btnToClick.addEventListener('click', clickButton)
-
-//Eerjcicio 4.2
-
-const handleFocus = (event) => {
-  const inputValue = event.target.value
-  console.log('Valor del input:', inputValue)
-}
-
-const inputFocus = document.querySelector('focus')
-inputFocus.addEventListener('focus', handleFocus)
