@@ -1,14 +1,14 @@
-//Ejercicio 2
+//Ejercicio 2.1
+const divVacio = document.createElement('div')
 
-const divElement = document.createElement('div')
-document.body.appendChild(divElement)
+document.body.appendChild(divVacio)
 
-const divWithP = document.createElement('div')
-const pElement = document.createElement('p')
-pElement.textContent = 'Este es un párrafo dentro del div'
-divWithP.appendChild(pElement)
-document.body.appendChild(divWithP)
-console.log(divWithP)
+//Ejercico 2.2
+const divp = document.createElement('div')
+const p = document.createElement('p')
+
+divp.appendChild(p)
+document.body.appendChild(divp)
 
 //Ejercicio 2.3
 
@@ -60,13 +60,10 @@ for (let i = 0; i < deleteNodos.length; i++) {
 
 //Ejercicio 2.8
 
-const newParr = document.createElement('p')
-newParr.textContent = 'Voy en medio'
-
-const divBefore = document.querySelector('.fn-insert-here:first-child')
-const divAfter = document.querySelector('.fn-insert-here:last-child')
-
-divBefore.parentNode.insertBefore(newParr, divAfter)
+const allDiv = document.querySelectorAll('div')
+const pMid = document.createElement('p')
+pMid.textContent = 'Voy en medio!'
+document.body.insertBefore(pMid, allDiv[1])
 
 //Ejercicio 2.9
 
