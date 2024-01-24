@@ -10,10 +10,6 @@ console.log('paragraphs', paragraphs)
 const pokemon = document.querySelectorAll('.pokemon')
 console.log('pokemon', pokemon)
 
-const atribut = document.querySelectorAll('[data-function="testMe"]')
-console.log('atribut', atribut)
+console.log(document.querySelectorAll("[data-function='testMe']"))
 
-const thirdCharacter = document.querySelector(
-  '[data-function="testMe"]:nth-child(3)'
-)
-console.log('thirdCharacter', thirdCharacter)
+console.log(document.querySelectorAll("[data-function='testMe']")[2])
